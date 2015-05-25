@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ 
+ <head>
+  
+  <title> The Iron Yelp </title>
+   
+     </head>
+      <body>
+      
+        <h1> The Iron Yelp </h1>
+        		
+         <h3><ul>
+           	<% @restaurants.each do |restaurant| %>
+  	           <li><%= restaurant.name %></li>
+               <li><%= restaurant.address %></li>
+               <li><%= restaurant.website %></li>
+               <li>Average Rating: <%= restaurant.avg_rating.round(1) %></li>
+               <li>Price Range in $: <%= restaurant.price %></li>
+               <li>Cuisines: <%= restaurant.cuisines %></li>
+               
+  	               <% end %>
+            </h3></ul>
+         </h3>   
+      
+      </body>
+</html>
