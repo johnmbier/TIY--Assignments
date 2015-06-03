@@ -21,9 +21,10 @@ class TodoController < ApplicationController
   end
 
   def create
-    params[:todo][:name].strip!
-    if params[:todo][:name].length > 0 
-      Todo.create(params.require(:todo).permit(:name)) 
+    render text: "#{params.inspect}"
+    params["name"].strip!
+    if params["name"].length > 0 
+      Todo.create(params) 
     end
       redirect_to "/todos"
   end
@@ -47,7 +48,7 @@ class TodoController < ApplicationController
 
   def toggle
     todo = Todo.find(params[:id])
-    todo.toggle!(:complete)
+    todo.toggle!(:comlete)
     redirect_to "/todos"
   end
 

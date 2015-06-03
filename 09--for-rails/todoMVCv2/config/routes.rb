@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
 
-  get 'todo/index', as: :todos_list
+  get 'todos' => 'todo#index'  #get 'route' => '(todo)controller#(index)action'
 
-  get 'todo/show'
+  get 'active' => 'todo#active'
 
-  get 'todo/new'
+  get 'completed' => 'todo#completed'
+
+  post 'create_todo' => 'todo#create'
+
+  post 'toggle_all' => 'todo#toggle_all'
+
+  post 'clear_completed' => 'todo#clear_completed'
+
+  get 'todo/:id/edit' => 'todo#edit'
+
+  post 'todo/:id/update' => 'todo#update'
+
+  post 'todo/:id/toggle' => 'todo#toggle'
+
+  post 'todo/:id/destroy' => 'todo#destroy' 
+
 
   
    
