@@ -25,22 +25,26 @@ class TodoController < ApplicationController
     if params[:todo][:name].length > 0 
       Todo.create(params.require(:todo).permit(:name)) 
     end
-      redirect_to "/todos"
+      redirect_to "/todo"
   end
 
   def toggle_all
-    Todo.toggle_all 
-    redirect_to "/todos"
+    if Todo.where(complete: false).any?
+     Todo.update_all complete: true
+    else
+     Todo.update_all complete: false
+    end 
+    redirect_to "/todo"
   end
 
-    def clear_completed
-    Todo.clear_completed 
-    redirect_to "/todos"
+  def clear_completed
+    Todo.where(complete:true).destroy_all
+    redirect_to "/todo"
   end
 
   def edit
     @todos = Todo.all
-    todo = @todos.find(params[:id])
+    todo = Todo.find(params[:id])
     todo.being_edited = true
     render :index
   end
@@ -48,25 +52,24 @@ class TodoController < ApplicationController
   def toggle
     todo = Todo.find(params[:id])
     todo.toggle!(:complete)
-    redirect_to "/todos"
+    redirect_to "/todo"
   end
 
   def destroy
     todo = Todo.find(params[:id])
     todo.destroy
-    redirect_to "/todos"
+    redirect_to "/todo"
   end
 
   def update
     todo = Todo.find(params[:id])
-    hash = request.query
-    hash["name"].strip!
-    if hash["name"].length > 0
-      todo.update(hash)
+    params[:todo][:name].strip!
+    if params[:todo][:name].length > 0 
+      Todo.update(params.require(:todo).permit(:name)) 
     else
       todo.destroy
     end
-    redirect_to "/todos"
+    redirect_to "/todo"
   end 
     
 end

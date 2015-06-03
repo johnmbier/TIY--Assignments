@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TodoMVC</title>
+    <title>TodoMVCv2</title>
     <link rel="stylesheet" href="/index.css">
   </head>
   <body>
@@ -42,7 +42,7 @@
                   <!-- The following form should appear only if this list item is being edited -->
                 <% if todo.being_edited %>
                   <form method="POST" action="/todo/<%= todo.id %>/update">
-                    <input class="edit" value="<%= todo.name %>" name="name">
+                    <input class="edit" value="<%= todo.name %>" name=[name]>
                   </form>
                 <% end %>
               </li>
@@ -57,7 +57,7 @@
           <span id="todo-count"><strong><%= @all_todos_count %></strong> item<%= 's' unless @all_todos_count == 1 %> left</span>
           <ul id="filters">
             <li>
-              <a <%= ' class="selected"' if @flag =='all' %> href="/todos">All</a>
+              <a <%= ' class="selected"' if @flag =='all' %> href="/todo">All</a>
             </li>
             <li>
               <a <%= ' class="selected"' if @flag == 'active' %> href="/active">Active</a>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'todos' => 'todo#index'  #get 'route' => '(todo)controller#(index)action'
+  get 'todo' => 'todo#index'  #get 'route' => '(todo)controller#(index)action'
 
   get 'active' => 'todo#active'
 

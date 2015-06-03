@@ -59,15 +59,13 @@ class TodoController < ApplicationController
   end
 
   def update
-    todo = Todo.find(params[:id])
-    hash = request.query
-    hash["name"].strip!
-    if hash["name"].length > 0
-      todo.update(hash)
+    params[:todo][:name].strip!
+    if params[:todo][:name].length > 0 
+      Todo.update(params.require(:todo).permit(:name)) 
     else
       todo.destroy
     end
-    redirect_to "/todos"
+    redirect_to "/todo"
   end 
     
 end
