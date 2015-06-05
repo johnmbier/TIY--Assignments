@@ -1,0 +1,7 @@
+<h1>Comments#show</h1>
+<p>Find me in app/views/comments/show.html.erb</p>
+<p><% @comment.each do |comment| %>
+   <div style="width:96%;background-color:#F3FBFC;border:1px solid #033E81;padding:5px;">
+   	<q>%=comment.content%></q><br>
+   	Author: <cite><%= comment.author%></cite>
+ </div>
