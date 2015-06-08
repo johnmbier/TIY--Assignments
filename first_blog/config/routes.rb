@@ -9,17 +9,18 @@ Rails.application.routes.draw do
 
   get 'comments/show'
 
-  get 'comments/index'
+  get 'comments/index' => 'comments#index'
 
-  post 'posts/:post_id/comments' => 'comments#create', as: :comment
+  post 'posts/:post_id/comments' => 'comments#create', as: :post_comments
 
   get 'posts' => 'posts#index'
 
   get 'posts/new' => 'posts#new', as: :new_post
 
   patch 'posts/:post_id/comments/:comments_id' => 'comments#update', as: :post_comment
-
-  get 'posts/:id' => 'posts#show', as: :post  
+  #post_comment_path(post,comment)
+  #or just [post, comment]
+  get 'posts/:id' => 'posts#show', as: :post  #post_path(post)
 
   get 'posts/:id/edit' => 'posts#edit', as: :edit_post
 
