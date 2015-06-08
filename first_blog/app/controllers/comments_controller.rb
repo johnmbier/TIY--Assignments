@@ -13,8 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(params.require(:comment)
-      .permit(:post_id, :content, :author))
-    redirect_to posts_url
+    @post = Post.find(params[:id])
+      
+    @comments = @post.comments.create(params.require(:id)
+      .permit(:content, :author))
+    redirect_to post_path(@post)
   end
 end

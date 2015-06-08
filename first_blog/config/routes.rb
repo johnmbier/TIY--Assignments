@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   get 'comments/index'
 
-  post 'comments' => 'comments#create'
+  post 'posts/:post_id/comments' => 'comments#create', as: :comment
 
   get 'posts' => 'posts#index'
 
   get 'posts/new' => 'posts#new', as: :new_post
+
+  patch 'posts/:post_id/comments/:comments_id' => 'comments#update', as: :post_comment
 
   get 'posts/:id' => 'posts#show', as: :post  
 
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
 
   patch 'posts/:id' => 'posts#update'
 
-  post 'post' => 'post#destroy', as: :destroy_post
+  delete 'post' => 'post#destroy', as: :destroy_post
 
 
 

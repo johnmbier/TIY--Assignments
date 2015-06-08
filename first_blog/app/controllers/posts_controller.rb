@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+  	@comment = Comment.new
   end
 
   def new
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
   def create
     Post.create(params.require(:post)
       .permit(:title, :content, :author))
+    @comment = Comment.new
     redirect_to posts_url
   end
 

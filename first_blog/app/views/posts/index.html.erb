@@ -1,9 +1,12 @@
 <h1>Darth Balls</h1>
 <h4>Kickball & Star Wars! Joining forces to kick the crap out of the Universe!</h4>
   <p><% @posts.each do |post| %>
-   <div style="width:96%;background-color:#F3FBFC;border:1px solid #033E81;padding:5px;"><h3><%= link_to post.title, post_path(post)%><br></h3> 
-     <q><%= post.content%><%= truncate(post.content, :length => 100)%></q><br> - Author: <cite><%= post.author%>
- </cite></div></p>    
+   <div style="width:96%;background-color:#F3FBFC;border:1px solid #033E81;padding:5px;">
+   	<h3><%= link_to post.title, post_path(post)%><br></h3> 
+     <q><%= post.content%><%= truncate(post.content, :length => 100)%></q><br>
+      - Author: <cite><%= post.author%></cite>
+   </div>
+  </p>    
  <br />
   <%end%>
 </ul>  
