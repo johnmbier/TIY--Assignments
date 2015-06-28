@@ -1,0 +1,2 @@
+module UseUrbDicApiHelper
+end

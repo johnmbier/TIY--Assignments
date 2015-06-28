@@ -1,0 +1,22 @@
+
+Outline:
+
+What does it do?
+the has one button. Once that button is pushed, the user will
+see a randomly generated "DJ Name". and possibly a definition.
+
+Example: DJ Darth Facepalm
+
+The name will consist of 2 components: 
+1. a first name from the Swapi(star wars api), randomly chosen.
+   - only the first name should be returned. 
+
+2. a randomly generated word from the Urban Dictionary api.
+
+both api's will randomly choose the 2 components that make up the returned
+"DJ Name".
+
+3. the associated definition from the urb. dic api would be a nice addition.
+
+
+
