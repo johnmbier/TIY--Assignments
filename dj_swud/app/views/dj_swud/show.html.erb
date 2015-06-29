@@ -1,19 +1,28 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <style>
-body {
+
+body {height:100%;
+    width:100%;
     background-image: url('assets/stormdj-bg.jpg');
     background-repeat: no-repeat;
+    background-size:cover;
     background-position: top;
-    margin-left: 200 pixels ;
+    margin-left: 0 pixels ;
 }
 </style>
 </head>
 
 <body>
-<p>DJ </p>
-<%= person = Swapi.get_person 1%>
+<h1>DJ EPIC FAIL!  I know this looks stupid but just needed to see "Something"</h1>
+
+<%= person_one = Swapi.get_person 1%>
+<%# person_one = JSON.parse person_one %>
+<%#= luke = person_one["results"][0]["name"]%>
+
+<!-- i just wanted to see if anything would print to the show page. i know it looks stupid -->
 <%= link_to "home", root_url %>
 </body>
 </html>
