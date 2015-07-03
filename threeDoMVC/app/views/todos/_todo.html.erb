@@ -1,0 +1,19 @@
+<li id= <%= "todo_#{todo.id}" %>>
+            <!-- If this list item is being edited, the div.view can be omitted -->
+            <div class="view">
+              <form>
+                <input class="toggle" type="checkbox" unchecked >
+              </form>
+              
+              <a><%= todo.name %></a>
+              <%= form_for todo, method: :delete, remote: true do |f| %>
+              <%= f.button "", :class => "destroy" %>
+              <% end %>
+             
+            </div>
+            <!-- The following form should appear only if this list item is being edited -->
+            <form>
+              <input class="edit" value="Taste the Ruby">
+            </form>
+          </li>
+
